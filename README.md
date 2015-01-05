@@ -85,7 +85,7 @@ Then run
 git --version
 ```
 
-The version should be > 2.1.
+The version should be >= 2.2.
 
 ## Installing Sublime Text for the Command Line
 [https://www.sublimetext.com/docs/3/osx_command_line.html](https://www.sublimetext.com/docs/3/osx_command_line.html)
