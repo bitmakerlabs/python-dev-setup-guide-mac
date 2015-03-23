@@ -136,16 +136,16 @@ If you look at your path (```echo $PATH```) you should see that reloading your c
 
 ## Installing Ruby
 
-To install ruby 2.1.5 (substitute this for the latest recommended version of ruby indicated on the [Rails website](http://rubyonrails.org/download)):
+To install ruby 2.2.1 (substitute this for the latest recommended version of ruby indicated on the [Rails website](http://rubyonrails.org/download)):
 ```
-rbenv install 2.1.5
+rbenv install 2.2.1
 ```
 
 This may take some time. Go get a coffee. I like [Stumptown](http://stumptowncoffee.com/). You can install other rubies (different versions of ruby) this way as well.
 
 After this finishes, you can setup your global (default) Ruby:
 ```
-rbenv global 2.1.5
+rbenv global 2.2.1
 ```
 
 Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
