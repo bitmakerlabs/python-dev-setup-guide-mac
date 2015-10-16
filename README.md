@@ -1,22 +1,23 @@
 # Mac Setup for Rails Development: Doing it Right
 
 This is an opinionated guide to getting a Rails dev environment setup quickly on a Mac. This is written assuming you have Lion (10.7+) or later as your operating system.
-If you have the choice, always choose a Mac for your dev environment. It's just easier. Linux is okay too.
 
-I'm writing this guide to help new-ish developers setup a clean system. If you already have some of this software installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and HomeBrew, which are my preferred tools.
+If you have the choice, always choose a Mac for your dev environment. It's just easier. Linux works as well, but the instructions are quite different from what's described in this guide.
 
-This guide assumes that you're using bash shell, which is the default shell for the OS X Terminal.app. I also assume that you use .bash_profile to setup PATH and other environment variables. If you use a different bash config file, be sure to substitute it where appropriate below.
+We've written this guide to help new-ish developers setup a clean system. If you already have some of this software installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and HomeBrew, which are our preferred tools.
+
+This guide assumes that you're using bash shell, which is the default shell for the OS X Terminal.app. We also assume that you use `.bash_profile` to setup `PATH` and other environment variables. If you use a different bash config file, be sure to substitute it where appropriate below.
 
 ## Preflight
 
-Download and install (make sure to drag the app into to the Applications folder before running it) [Sublime Text](http://www.sublimetext.com/). This is the text editor of choice for discerning, good-looking individuals.
+Download and install (make sure to drag the app into to the Applications folder before running it) [Sublime Text](http://www.sublimetext.com/3/). This is the text editor of choice for discerning, good-looking individuals.
 
 
-## XCode and Developer Tools
+## XCode and Command Line Tools
 
-Install the latest [XCode](https://developer.apple.com/xcode/). (Currently Version 6). This may launch through the App Store and you can install from there.
+Install the latest [XCode](https://developer.apple.com/xcode/). (Currently Version 7). This may launch through the App Store and you can install from there.
 
-**Make sure to also install command line tools, which is an option during the install process**.
+**Make sure to also install Command Line Tools, which is an option during the install process**.
 
 If you've missed it, you can download them from the Apple Developer Downloads [https://developer.apple.com/downloads](https://developer.apple.com/downloads). Be sure to find the latest version that matches your version of XCode.
 
@@ -30,7 +31,7 @@ To install HomeBrew, copy, paste and run the following at the command line:
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Then close terminal and re-open it (restart terminal).
+Then close terminal and re-open it (restart Terminal).
 
 Now run
 ```bash
@@ -47,9 +48,9 @@ This is a problem. Let's fix this by moving the bin directory that HomeBrew sets
 ```
 echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 ```
-This will create a .bash_profile config file which is read and executed each time a new terminal is opened. To apply changes made to this file, you can either restart terminal (ghetto mode), or run ```source ~/.bash_profile```.
+This will create a `.bash_profile` config file which is read and executed each time a new terminal is opened. To apply changes made to this file, you can either restart terminal (ghetto mode), or run ```source ~/.bash_profile```.
 
-If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings, you can [contact Julie](mailto:julie@bitmakerlabs.com) for help.
+If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings, you can [contact Mina](mailto:mina@bitmakerlabs.com) or [Ilia](mailto:ilia@bitmakerlabs.com) for help.
 
 Test this out by installing wget via HomeBrew: ```brew install wget```.
 Now run ```brew update``` to get the latest HomeBrew formulas.
@@ -63,8 +64,7 @@ Command-line executables are searched by going through each folder in the PATH v
 echo $PATH
 ```
 
-HomeBrew packages are downloaded and installed in /usr/local/Cellar/ by default, and symlinked into /usr/local/bin. This folder will not be overriden the next time Apple
-releases an incremental feline update.
+HomeBrew packages are downloaded and installed in `/usr/local/Cellar/` by default, and symlinked into `/usr/local/bin`. This folder will not be overriden the next time Apple releases an incremental feline update.
 
 ### Food for Thought
 
@@ -90,7 +90,7 @@ The version should be >= 2.2.
 ## Installing Sublime Text for the Command Line
 [https://www.sublimetext.com/docs/3/osx_command_line.html](https://www.sublimetext.com/docs/3/osx_command_line.html)
 
-Sublime Text comes with a command-line app called `subl`. We're going to install this in the homebrew bin directory instead of ~/bin as stated on the sublime text website.
+Sublime Text comes with a command-line app called `subl`. We're going to install this in the Homebrew `bin` directory instead of `~/bin` as stated on the Sublime Text website.
 ```bash
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 ```
@@ -136,16 +136,16 @@ If you look at your path (```echo $PATH```) you should see that reloading your c
 
 ## Installing Ruby
 
-To install ruby 2.2.1 (substitute this for the latest recommended version of ruby indicated on the [Rails website](http://rubyonrails.org/download)):
+To install ruby 2.2.2 (substitute this for the latest recommended version of Ruby indicated on the [Rails website](http://rubyonrails.org/download)):
 ```
-rbenv install 2.2.1
+rbenv install 2.2.2
 ```
 
 This may take some time. Go get a coffee. I like [Stumptown](http://stumptowncoffee.com/). You can install other rubies (different versions of ruby) this way as well.
 
 After this finishes, you can setup your global (default) Ruby:
 ```
-rbenv global 2.2.1
+rbenv global 2.2.2
 ```
 
 Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
