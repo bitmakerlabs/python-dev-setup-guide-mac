@@ -15,6 +15,18 @@ Download and install (make sure to drag the app into to the Applications folder 
 
 ## XCode and Command Line Tools
 
+We need to install the tools that allow us to compile programs specifically for your machine. These are provided by Apple and are pretty easy to install.
+
+### If you are running Mac OS X 10.9+
+
+You can save yourself a lot of time downloading and installing XCode (as described below) by running the following command on the command line and accepting all of the prompts to install:
+
+```bash
+xcode-select --install
+```
+
+### If you're running Mac OS X 10.7 or 10.8 (or the above step didn't work)
+
 Install the latest [XCode](https://developer.apple.com/xcode/). (Currently Version 7). This may launch through the App Store and you can install from there.
 
 **Make sure to also install Command Line Tools, which is an option during the install process**.
