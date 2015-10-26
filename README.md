@@ -10,7 +10,7 @@ This guide assumes that you're using bash shell, which is the default shell for 
 
 ## Preflight
 
-Download and install (make sure to drag the app into to the Applications folder before running it) [Sublime Text](http://www.sublimetext.com/3/). This is the text editor of choice for discerning, good-looking individuals.
+Download and install (make sure to drag the app into to the Applications folder before running it) [Sublime Text](http://www.sublimetext.com/3). This is the text editor of choice for discerning, good-looking individuals.
 
 
 ## XCode and Command Line Tools
