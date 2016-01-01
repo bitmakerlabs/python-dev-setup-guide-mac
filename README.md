@@ -1,6 +1,6 @@
 # Mac Setup for Rails Development: Doing it Right
 
-This is Bitmaker Lab's guide to setting up a Rails development environment on a Mac.
+This is Bitmaker Labs' guide to setting up a Rails development environment on a Mac.
 
 If you have the choice, always choose a Mac for your Rails development environment. It's just much easier, especially when starting out as a new developer. Linux works too, but the instructions will be completely different from what's described here.
 
@@ -306,7 +306,11 @@ atom .
 
 The `.` symbol means 'this directory', so the command means 'Open Atom in this directory'.
 
-### Delete the new Rails project (optional)
+Poke around the project files as much as you like. Soon we'll be learning all about what makes a Rails app tick. Isn't it exciting?
+
+Now, close the editor and continue to the next step.
+
+### Delete the new Rails project
 
 To keep your work directory clean, let's delete the new project you just created.
 
@@ -411,7 +415,22 @@ Go ahead and memorize that passphrase now because it'll be needed again soon, in
 Next you'll be asked to `Enter same passphrase again`. Do so. You sould then see something like:
 
 ```
-Your identification has been saved in /Users/user/.ssh/id_rsa.Your public key has been saved in /Users/user/.ssh/id_rsa.pub.The key fingerprint is:SHA256:blw174u+1MfrpxaacBOqP4DLHyxUqcMPoOQ3+ijXOic anonymous@gmail.comThe key's randomart image is:+---[RSA 4096]----+|                 ||         .       ||  . .   o   o    || o . o o   ..o   ||  o o *.S .. ..  ||   o o.B..o oo.. ||  .. ...Bo o.+o.o||. Eoo oo....o..oo|| oo=.  ....o+o++.|+----[SHA256]-----+
+Your identification has been saved in /Users/user/.ssh/id_rsa.
+Your public key has been saved in /Users/user/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:blw174u+1MfrpxaacBOqP4DLHyxUqcMPoOQ3+ijXOic anonymous@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|                 |
+|         .       |
+|  . .   o   o    |
+| o . o o   ..o   |
+|  o o *.S .. ..  |
+|   o o.B..o oo.. |
+|  .. ...Bo o.+o.o|
+|. Eoo oo....o..oo|
+| oo=.  ....o+o++.|
++----[SHA256]-----+
 ```
 
 And it means we can move onto the next step.
@@ -448,7 +467,8 @@ ssh -T git@github.com
 You will see something like:
 
 ```
-The authenticity of host 'github.com (192.30.252.131)' can't be established.RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+The authenticity of host 'github.com (192.30.252.131)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
@@ -483,7 +503,10 @@ brew install Caskroom/cask/rowanj-gitx
 Enter your OS X password if asked:
 
 ```
-==> brew cask install Caskroom/cask/rowanj-gitx==> We need to make Caskroom for the first time at /opt/homebrew-cask/Caskroom==> We'll set permissions properly so we won't need sudo in the futurePassword:
+==> brew cask install Caskroom/cask/rowanj-gitx
+==> We need to make Caskroom for the first time at /opt/homebrew-cask/Caskroom
+==> We'll set permissions properly so we won't need sudo in the future
+Password:
 ```
 
 Verify that it installed ok:
@@ -495,7 +518,8 @@ gitx --version
 and it should say something like 
 
 ```
-GitX version 0.15.1964 ((null))Using git found at /usr/local/bin/git, version 2.6.4
+GitX version 0.15.1964 ((null))
+Using git found at /usr/local/bin/git, version 2.6.4
 ```
 
 To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll get there in class very, very soon.
