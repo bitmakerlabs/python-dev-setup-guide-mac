@@ -1,52 +1,60 @@
 # Mac Setup for Rails Development: Doing it Right
 
-This is an opinionated guide to setting up a Rails development environment on a Mac. If you have the choice, always choose a Mac for your development environment. It's just easier. Linux works too, but the instructions will be completely different from what's described here.
+This is Bitmaker Lab's guide to setting up a Rails development environment on a Mac.
 
-This guide is written assuming you have OS X El Capitan 10.11 or later as your operating system. (The guide may still work for OS X 10.9 or 10.10, but is not guaranteed. You should upgrade to 10.11 before proceeding.)
+If you have the choice, always choose a Mac for your Rails development environment. It's just much easier, especially when starting out as a new developer. Linux works too, but the instructions will be completely different from what's described here.
 
-We've written this guide to help new-ish developers setup a clean system. If you already have some of this software installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and HomeBrew, which are our preferred tools.
+This process should take about 1 hour to 1.5 hours to complete, depending on the speed of your machine and your internet connection.
 
-This guide assumes that you're using bash shell, which is the default shell for the OS X Terminal.app. We also assume that you use `.bash_profile` to setup `PATH` and other environment variables. If you use a different bash config file, be sure to substitute it where appropriate below.
+## Preflight
+
+This guide is written assuming you are running OS X El Capitan 10.11 or later. These instructions may still work for OS X 10.9 or 10.10, but is not guaranteed. You should upgrade to 10.11 before proceeding. We'll be waiting for you right here.
+
+If you're a new developer and you haven't installed any development tools before, you can skip the next two paragraphs and go straight to the next step: [XCode and Command Line Tools](#xcode-and-command-line-tools).
+
+If you already have some development tools installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and Homebrew, which are our preferred tools.
+
+This guide assumes that you're using bash shell, which is the default shell for the OS X Terminal. We also assume that you use `.bash_profile` to setup `$PATH` and other environment variables. If you use a different bash config file, be sure to substitute it where appropriate below.
 
 ## XCode and Command Line Tools
 
 We need to install the tools that allow us to compile programs specifically for your machine. These are provided by Apple and are pretty easy to install.
 
-### If you're running Mac OS X 10.8 or earlier
+Open the **Terminal** program. You can find it in the *Other* folder in Launchpad.
 
-Please upgrade to the latest version of OS X before continuing (Currently El Capitan 10.11).
-
-### If you are running Mac OS X 10.9 or later
-
-You can save yourself a lot of time downloading and installing XCode by running the following command on the command line and accepting all of the prompts to install:
+Enter the following command on the terminal command line.
 
 ```bash
 xcode-select --install
 ```
 
-## HomeBrew
+It will pop up a dialog box like the following.
 
-[HomeBrew](http://brew.sh/) is a package manager for OS X, which we'll use to install most of our command-line applications. It's a much more convenient alternative to compiling the code ourselves from source (or using MacPorts).
+![XCode](assets/xcode.png)
 
-To install HomeBrew, copy, paste and run the following at the command line:
+Click **Install** to proceed. It is going to take a few minutes to complete.
+
+## Homebrew
+
+Next we'l install [Homebrew](http://brew.sh/), a package manager which we'll use to install most of our other required command-line tools. It's a much more convenient alternative to compiling the code ourselves from source.
+
+To install Homebrew, copy, paste and run the following at the command line:
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Then close terminal and re-open it (restart Terminal).
+You'll have to enter your Mac password to install Homebrew.
 
-Now run
+Once it's installed, run:
 
 ```bash
 brew doctor
 ```
 
-to make sure HomeBrew installed correctly.
+to make sure Homebrew installed correctly.
 
-### Your system is ready to brew
-
-If brew doctor says `Your system is ready to brew`, then everything worked properly and you can skip the following step *"Your system is not ready to brew"*. Lucky you.
+If brew doctor says `Your system is ready to brew`, then everything worked properly and you can skip the following step *"Your system is not ready to brew"* and proceed straight to [Try out Homebrew](#try-out-homebrew). Lucky you.
 
 ### Your system is not ready to brew
 
@@ -54,7 +62,7 @@ You might see something like this:
 
 ![Running brew doctor](assets/homebrew.png)
 
-This is a problem. Let's fix this by moving the bin directory that HomeBrew sets up for us ahead of every other folder specified in PATH. Run the following:
+This is a problem. Let's fix this by moving the bin directory that Homebrew sets up for us ahead of every other folder specified in PATH. Run the following:
 
 ```bash
 echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
@@ -62,70 +70,59 @@ echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 
 This will create a `.bash_profile` config file which is read and executed each time a new terminal is opened. To apply changes made to this file, you can either restart terminal (ghetto mode), or run `source ~/.bash_profile`.
 
-If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings, you can contact [Mina](mailto:mina@bitmakerlabs.com), [Ilia](mailto:ilia@bitmakerlabs.com), or [Fred](mailto:fred@bitmakerlabs.com) for help.
+If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings, contact [Mina](mailto:mina@bitmakerlabs.com), [Ilia](mailto:ilia@bitmakerlabs.com), [Fred](mailto:fred@bitmakerlabs.com), or another instructor for help. (We hang out on Slack most of the time, try to reach us there.)
 
-Test this out by installing wget via HomeBrew: 
+### Try out Homebrew
+
+Try Homebrew out by installing `wget`:
 
 ```bash
 brew install wget
 ```
 
-Now run :
-
-```bash
-brew update
-```
-
-to get the latest HomeBrew formulas.
+In the future, run `brew update` to get the latest Homebrew formulas, and `brew upgrade` to update to the latest versions of installed applications. You don't need to run them right now because you've already just installed the latest and greatest!
 
 ### An Aside: Why PATH Order is Important
 
-Command-line executables are searched by going through each folder in the PATH variable, one by one in the order listed. As soon as an app with the same name is found, it stops searching the rest of the folders. OS X comes with built-in apps (and you might have your own apps installed prior to this), but we often want to use newer versions instead. To make sure the newer version gets 'picked up', we need to ensure that the symlinked HomeBrew /bin folder comes before other system folders. To see the PATH directories, run
+Command-line executables are searched by going through each folder in the PATH variable, one by one in the order listed. As soon as an app with the same name is found, it stops searching the rest of the folders. OS X comes with built-in apps (and you might have your own apps installed prior to this), but we often want to use newer versions instead. To make sure the newer version gets 'picked up', we need to ensure that the symlinked Homebrew /bin folder comes before other system folders. To see the PATH directories, run
 
 ```bash
 echo $PATH
 ```
 
-HomeBrew packages are downloaded and installed in `/usr/local/Cellar/` by default, and symlinked into `/usr/local/bin`. This folder will not be overriden the next time Apple releases an incremental feline update.
+Homebrew packages are downloaded and installed in `/usr/local/Cellar/` by default, and symlinked into `/usr/local/bin`. This folder will not be overridden the next time Apple releases an incremental OS X update.
+
+If you're a new developer and this section didn't make much sense to you, don't worry about it; you'll pick it up in the fullness of time.
 
 ### Food for Thought
 
-* How do I get a list of homebrew packages that are installable?
-* How do I get a list of currently installed homebrew packages?
+* How do I get a list of Homebrew packages that are installable?
+* How do I get a list of currently installed Homebrew packages?
 * How do I update an existing package?
 
+(You'll probably have to read the [Homebrew documentation](https://github.com/Homebrew/homebrew) to answer these questions.)
 
-## Sublime Text
+## Atom Editor
 
-### Install Sublime
+### Install Atom
 
-Download and install [Sublime Text](http://www.sublimetext.com/3). This is the text editor of choice for discerning, good-looking individuals.
+Download [Atom](https://atom.io). Remember to drag the app from your `Downloads` folder into your `Applications` folder to install it into your system. Double click to launch it and take a look around.
 
-Make sure to drag the app into to the Applications folder before running it.
+Atom is the text editor we recommend for the course. Other alternatives are [Sublime Text 3](http://www.sublimetext.com/3) and [Textmate 2](https://macromates.com/download) if you ever feel like a change of pace.
 
-Run the program to make sure that it works.
+### Atom Command-Line Tool
 
-### Sublime Command-Line tools
-
-Sublime Text comes with a command-line app called `subl`. We're going to install this in the Homebrew `bin` directory instead of `~/bin` as stated on the Sublime Text website.
-
-```bash
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-```
-
-Now we can open up files (and folders!) from the command line using
+Atom comes with a command-line app called `atom`. We can open up files and folders from the command line using:
 
 ```bash
-subl name_of_file_or_folder
+atom name_of_file_or_folder
 ```
 
-Now that you've got this set up, you might also want to set Sublime Text as your default system editor. Much easier to use than `vim`!
+Now that you've installed Atom, you might also want to set it as your default system editor. Much easier to use than `vim`!
 
 ```bash
-echo 'export EDITOR="subl -w"' >> ~/.bash_profile
+echo 'export EDITOR="atom -w"' >> ~/.bash_profile
 ```
-
-For more information: [Sublime Text Command Line Tools Documentation](https://www.sublimetext.com/docs/3/osx_command_line.html)
 
 ## rbenv
 
@@ -151,17 +148,23 @@ If you look at your path:
 echo $PATH
 ```
 
-you should see that reloading your config has inserted `/Users/(you)/.rbenv/shims` to the beginning of your `$PATH` variable. This is necessary for rbenv to work its magic.
+It should look something like:
+
+```
+/Users/user/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+```
+
+Reloading your config has inserted `/Users/(you)/.rbenv/shims` to the beginning of your `$PATH` variable. This is necessary for rbenv to work its magic.
 
 ## Ruby
 
-To install ruby 2.3.0 (substitute this for the latest recommended version of Ruby indicated on the [Rails website](http://rubyonrails.org/download)):
+To install ruby 2.3.0 (substitute this for the latest stable version of Ruby indicated on the [Ruby website](https://www.ruby-lang.org/en/downloads)):
 
 ```bash
 rbenv install 2.3.0
 ```
 
-This may take some time. Go get a coffee. 
+This may take a while. Feel free to get a coffee while you wait.
 
 After this finishes, you can setup your global (default) Ruby:
 
@@ -179,19 +182,19 @@ It should say `ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]` or so
 
 Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
 
-You can install other rubies (different versions of ruby) this way as well.
+You can install older versions of Ruby this way as well if you ever find yourself working on a project that relies on an older version.
 
 ## RubyGems
 
-RubyGems is a package management framework for Ruby. It ships with Ruby 2.0.0+. We use it to install Ruby apps such as Rails. If you need to install this manually, see [http://rubygems.org/pages/download](http://rubygems.org/pages/download).
+RubyGems is a package management framework for Ruby. We use it to install Ruby apps such as Rails.
 
-Run the following to update to the latest version.
+Run the following to update to the latest version:
 
 ```bash
 gem update --system
 ```
 
-Next up run to install [Bundler](http://bundler.io/)
+Next run the following to install [Bundler](http://bundler.io/), which is required by Rails for managing your app's gems:
 
 ```bash
 gem install bundler
@@ -211,6 +214,18 @@ Install the Postgres command-line tools as follows:
 echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin' >> ~/.bash_profile
 ```
 
+Close and reopen Terminal, and then run:
+
+```bash
+psql --version
+```
+
+It should say something like:
+
+```
+psql (PostgreSQL) 9.4.5
+```
+
 For more information: [Postgres Documentation](http://postgresapp.com/documentation/)
 
 ## Rails
@@ -225,20 +240,19 @@ gem install rails -v 4.2.5
 
 **Never run sudo in front of these gem commands**, or it may install to the wrong folder.
 
-You can look at your gems by running
+Rails might take a while to install. When the installation is done, you can look at your installed gems by running
 
 ```bash
 gem list
 ```
 
-Verify that Rails is there and that the version is 4.2.5.
+Verify that Rails is there and that the version is 4.2.5. Now run:
 
 ```bash
 rails --version
 ```
 
 It should say `Rails 4.2.5`.
-
 
 ### Making a New Rails Project
 
@@ -248,17 +262,17 @@ You should create a directory to put all of your work inside.
 mkdir ~/Documents/work
 ```
 
-This will create a `work` directory inside the OS X `Documents` folder. The words directory and folder are interchangeable. Folder is generally used by non-technical people and directory is generally used by technical people. Now that you are being initiated as techies, we'll use the directory term!
+This will create a `work` directory inside the OS X `Documents` folder. The words 'directory' and 'folder' are interchangeable. 'Folder' is the word generally used by non-technical people and 'directory' is the word generally used by technical people. Now that you are being initiated as techies, we'll use the 'directory' term!
 
-The `~` refers to your [Home Directory](http://superuser.com/questions/158721/what-does-mean-in-terms-of-os-x-folders-directories). You should put all of your work for this course inside this directory.
+The `~` symbol refers to your [Home Directory](http://superuser.com/questions/158721/what-does-mean-in-terms-of-os-x-folders-directories). You should put all of your work for this course inside the work directory, or some other directory of your choosing if you have another preference.
 
-Go inside the work directory
+Go inside the work directory:
 
 ```bash
 cd ~/Documents/work
 ```
 
-and then make a new Rails project.
+and then make a new Rails project:
 
 ```bash
 rails new my_awesome_app
@@ -272,7 +286,7 @@ Next, go into your new project directory
 cd my_awesome_app
 ```
 
-then run
+then run:
 
 ```bash
 bin/rails server
@@ -284,15 +298,39 @@ You can type `ctrl + c` into your terminal to stop the Rails application.
 
 In this course, you're going to be running the `bin/rails server` and `ctrl + c` commands very, very often, so go ahead and memorize them now!
 
+Finally, you can open up the project files in Atom with the following command:
+
+```bash
+atom .
+```
+
+The `.` symbol means 'this directory', so the command means 'Open Atom in this directory'.
+
 ### Delete the new Rails project (optional)
 
 To keep your work directory clean, let's delete the new project you just created.
 
-You are currently in your project directory. Let's go back up one directory, to your work directory.
+You are currently in your project directory. Check that by running:
+
+```bash
+pwd
+```
+
+It should say something like `/Users/username/Documents/work/my_awesome_app`.
+
+Let's go back up one directory, to your work directory.
 
 ```bash
 cd ..
 ```
+
+Double check where you are:
+
+```bash
+pwd
+```
+
+It should say something like `/Users/username/Documents/work`.
 
 Double check the contents of the directory
 
@@ -303,14 +341,18 @@ ls
 If you've followed all the directions so far, there should only be single item called `my_awesome_app`. Go ahead and delete this project, it has served its purpose.
 
 ```bash
-rm -rf my_awesome_app
+rm -r my_awesome_app
 ```
+
+Be careful running this `rm -r` command! It's a command you need to learn, but always double and triple check what you're deleting. [More information on the rm -r command](http://stackoverflow.com/questions/29363445/what-is-exactly-doing-rm-r)
 
 ## Git
 
 ### Register on Github
 
-First you'll need to setup your GitHub account. Go to [github.com](http://github.com) and register a free account with your usual email address.
+First you'll need to setup your GitHub account.
+
+Go to [github.com](http://github.com) and register a free account with your usual email address.
 
 ### Set up Git
 
@@ -320,9 +362,7 @@ git comes with OS X but it's typically an older version. Let's get a newer one.
 brew install git
 ```
 
-Then close terminal and re-open it (restart Terminal).
-
-Then run
+Then run:
 
 ```bash
 git --version
@@ -336,7 +376,7 @@ Next, tell Git your name so that your commits will be properly labelled. Substit
 git config --global user.name "YOUR NAME"
 ```
 
-Now tell Git the email address that will be associated with your Git commits. This email address should be the same one that you registered on Github with. Subtitute it for `YOUR EMAIL ADDRESS` below.
+Now tell Git the email address that will be associated with your Git commits. This email address should be the same one that you registered with Github. Subtitute it for `YOUR EMAIL ADDRESS` below.
 
 ```bash
 git config --global user.email "YOUR EMAIL ADDRESS"
@@ -354,7 +394,7 @@ First let's make sure you don't already have existing SSH keys on your computer.
 ls -la ~/.ssh
 ```
 
-It should say something like `No such file or directory`.
+It should say something like `ls: /Users/username/.ssh: No such file or directory`.
 
 With Terminal still open, run the following. Be sure to subtitute your Github email address.
 
@@ -364,7 +404,7 @@ ssh-keygen -t rsa -b 4096 -C "YOUR EMAIL ADDRESS"
 
 When you are prompted to `Enter file in which to save the key`, just press **Enter** to continue and it will use the default filename `id_rsa`.
 
-You'll then be asked to `Enter passphrase (empty for no passphrase)`. Enter a very good, secure passphrase (be sure that it's something you can remember). 
+You'll then be asked to `Enter passphrase (empty for no passphrase)`. Enter a very good, secure passphrase (be sure that it's something you can remember).
 
 Go ahead and memorize that passphrase now because it'll be needed again soon, in the *Test the Connection* step.
 
@@ -386,13 +426,13 @@ Copy the SSH key to your clipboard.
 pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-Follow these steps to add the copied key to your Github account. 
+Follow these steps to add the copied key to your Github account.
 
 * In the top right corner of Github, click your profile photo, then click Settings.
 * In the user settings sidebar, click **SSH keys**.
 * Click **Add SSH key**.
-* In the Title field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
-* Paste your key into the "Key" field. (`ctrl-v`)
+* In the **Title** field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+* Paste your key into the **Key** field. (`ctrl-v`)
 * Click **Add key**.
 
 For more information: [Github documentation on adding your SSH Key to your account](https://help.github.com/articles/generating-ssh-keys/#step-4-add-your-ssh-key-to-your-account)
@@ -418,7 +458,9 @@ Next, a window like the following should pop up:
 
 ![SSH Agent](assets/sshagent.png)
 
-Check the **Remember password in my keychain** box and then type in the passphrase that you used to generate the SSH Key, and press **OK**.
+Make sure the **Remember password in my keychain** box is checked.
+
+Then type in the passphrase that you used to generate the SSH Key, and press **OK**.
 
 
 If you see the following, then your Github account has been set up properly!
@@ -430,7 +472,7 @@ provide shell access.
 
 If you receive a message about "access denied," please see an instructor for help.
 
-## GitX
+### GitX
 
 [GitX](http://rowanj.github.io/gitx/) is a great GUI that'll come in very useful later on. Go ahead and install it with brew:
 
@@ -444,8 +486,20 @@ Enter your OS X password if asked:
 ==> brew cask install Caskroom/cask/rowanj-gitx==> We need to make Caskroom for the first time at /opt/homebrew-cask/Caskroom==> We'll set permissions properly so we won't need sudo in the futurePassword:
 ```
 
-To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll get there in class very soon.
+Verify that it installed ok:
+
+```bash
+gitx --version
+```
+
+and it should say something like 
+
+```
+GitX version 0.15.1964 ((null))Using git found at /usr/local/bin/git, version 2.6.4
+```
+
+To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll get there in class very, very soon.
 
 ## Congratulations
 
-Whew, you're done installing a working Rails development environment! Go get a Timmys (or another snack of your choice), you deserve it!
+Whew, you're done installing a working Rails development environment! Now take a break, you deserve it!
