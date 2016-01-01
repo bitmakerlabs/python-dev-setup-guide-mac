@@ -36,7 +36,7 @@ Click **Install** to proceed. It is going to take a few minutes to complete.
 
 ## Homebrew
 
-Next we'l install [Homebrew](http://brew.sh/), a package manager which we'll use to install most of our other required command-line tools. It's a much more convenient alternative to compiling the code ourselves from source.
+Next we'll install [Homebrew](http://brew.sh/), a package manager which we'll use to install most of our other required command-line tools. It's a much more convenient alternative to compiling the code ourselves from source.
 
 To install Homebrew, copy, paste and run the following at the command line:
 
@@ -80,11 +80,13 @@ Try Homebrew out by installing `wget`:
 brew install wget
 ```
 
-In the future, run `brew update` to get the latest Homebrew formulas, and `brew upgrade` to update to the latest versions of installed applications. You don't need to run them right now because you've already just installed the latest and greatest!
+In the future, run `brew update` to get the latest Homebrew formulas, and `brew upgrade` to update to the latest versions of installed applications.
+
+You don't need to run these commands right now because you've already just installed the latest and greatest!
 
 ### An Aside: Why PATH Order is Important
 
-Command-line executables are searched by going through each folder in the PATH variable, one by one in the order listed. As soon as an app with the same name is found, it stops searching the rest of the folders. OS X comes with built-in apps (and you might have your own apps installed prior to this), but we often want to use newer versions instead. To make sure the newer version gets 'picked up', we need to ensure that the symlinked Homebrew /bin folder comes before other system folders. To see the PATH directories, run
+Command-line executables are searched by going through each folder in the `$PATH` variable, one by one in the order listed. As soon as an app with the same name is found, it stops searching the rest of the folders. OS X comes with built-in apps (and you might have your own apps installed prior to this), but we often want to use newer versions instead. To make sure the newer version gets 'picked up', we need to ensure that the symlinked Homebrew /bin folder comes before other system folders. To see the PATH directories, run
 
 ```bash
 echo $PATH
@@ -134,7 +136,7 @@ This installs [rbenv](https://github.com/sstephenson/rbenv), a lightweight tool 
 
 Install rbenv will automatically install [ruby-build](https://github.com/sstephenson/ruby-build), a plugin for rbenv to conveniently install different versions of Ruby.
 
-Now we need to modify our bash config, paste the following in your terminal.
+Now we need to modify our bash config. Copy and paste the following in your terminal.
 
 ```bash
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
@@ -256,7 +258,7 @@ It should say `Rails 4.2.5`.
 
 ### Making a New Rails Project
 
-You should create a directory to put all of your work inside.
+You should create a directory where you can put all of your work. Run:
 
 ```bash
 mkdir ~/Documents/work
@@ -280,6 +282,8 @@ rails new my_awesome_app
 
 This step will probably take a few minutes the first time you create a new Rails project. The next time, it'll run much faster.
 
+### Running a Rails project
+
 Next, go into your new project directory
 
 ```bash
@@ -297,6 +301,8 @@ Visit `http://localhost:3000` in your browser. If you see the **Welcome aboard**
 You can type `ctrl + c` into your terminal to stop the Rails application.
 
 In this course, you're going to be running the `bin/rails server` and `ctrl + c` commands very, very often, so go ahead and memorize them now!
+
+### Editing a Rails project
 
 Finally, you can open up the project files in Atom with the following command:
 
@@ -494,7 +500,7 @@ If you receive a message about "access denied," please see an instructor for hel
 
 ### GitX
 
-[GitX](http://rowanj.github.io/gitx/) is a great GUI that'll come in very useful later on. Go ahead and install it with brew:
+[GitX](http://rowanj.github.io/gitx/) is a great GUI for Git that'll come in very useful later on. Go ahead and install it with brew:
 
 ```bash
 brew install Caskroom/cask/rowanj-gitx
@@ -522,7 +528,7 @@ GitX version 0.15.1964 ((null))
 Using git found at /usr/local/bin/git, version 2.6.4
 ```
 
-To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll get there in class very, very soon.
+To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll explan how Git repositories work in class very, very soon.
 
 ## Congratulations
 
