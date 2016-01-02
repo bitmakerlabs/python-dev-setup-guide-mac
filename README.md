@@ -153,10 +153,10 @@ echo $PATH
 It should look something like:
 
 ```
-/Users/user/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+/Users/username/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 ```
 
-Reloading your config has inserted `/Users/(you)/.rbenv/shims` to the beginning of your `$PATH` variable. This is necessary for rbenv to work its magic.
+Reloading your config has inserted `/Users/username/.rbenv/shims` to the beginning of your `$PATH` variable. This is necessary for rbenv to work its magic.
 
 ## Ruby
 
