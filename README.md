@@ -1,4 +1,4 @@
-# Web Development Intensive Mac Setup for Development
+# Mac Setup for Web Development Intensive
 
 This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.
 
