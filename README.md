@@ -1,8 +1,8 @@
-# Mac Setup for Rails Development: Doing it Right
+# Web Development Intensive Mac Setup for Development
 
-This is Bitmaker Labs' guide to setting up a Rails development environment on a Mac.
+This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.
 
-If you have the choice, always choose a Mac for your Rails development environment. It's just much easier, especially when starting out as a new developer. Linux works too, but the instructions will be completely different from what's described here.
+If you have the choice, always choose a Mac for your development environment. It's just much easier, especially when starting out as a new developer. Linux works too, but the [instructions](https://github.com/bitmakerlabs/dev_environment_setup) will be quite different from what's described here. Using Windows for the course is not recommended at all.
 
 This process should take about 1 hour to 1.5 hours to complete, depending on the speed of your machine and your internet connection.
 
