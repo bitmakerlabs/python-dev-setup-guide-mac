@@ -378,7 +378,7 @@ Then run:
 git --version
 ```
 
-It should say something like `git version 2.6.4`. The version number should be >= 2.6.
+It should say something like `git version 2.7.4`. The version number should be >= 2.7.
 
 Next, tell Git your name so that your commits will be properly labelled. Substitute your actual name for `YOUR NAME`, of course.
 
