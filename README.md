@@ -213,7 +213,7 @@ The easiest way to install this is via [Postgres.app](http://postgresapp.com/). 
 Install the Postgres command-line tools as follows:
 
 ```bash
-echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin' >> ~/.bash_profile
+echo 'export PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH' >> ~/.bash_profile
 ```
 
 Close and reopen Terminal, and then run:
