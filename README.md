@@ -134,7 +134,7 @@ brew install rbenv
 
 This installs [rbenv](https://github.com/sstephenson/rbenv), a lightweight tool to manage different versions of Ruby. OS X comes with an old version of Ruby, but we'll generally want to have our own, newer versions of it.
 
-Install rbenv will automatically install [ruby-build](https://github.com/sstephenson/ruby-build), a plugin for rbenv to conveniently install different versions of Ruby.
+Installing rbenv will automatically install [ruby-build](https://github.com/sstephenson/ruby-build), a plugin for rbenv to conveniently install different versions of Ruby.
 
 Now we need to modify our bash config. Copy and paste the following in your terminal.
 
