@@ -70,7 +70,7 @@ echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 
 This will create a `.bash_profile` config file which is read and executed each time a new terminal is opened. To apply changes made to this file, you can either restart terminal (ghetto mode), or run `source ~/.bash_profile`.
 
-If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings, contact [Mina](mailto:mina@bitmakerlabs.com), [Ilia](mailto:ilia@bitmakerlabs.com), [Fred](mailto:fred@bitmakerlabs.com), or another instructor for help. (We hang out on Slack most of the time, try to reach us there.)
+If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings you can contact an instructor for help.  You can also post a question in the #askusanything channel on Slack.
 
 ### Try out Homebrew
 
