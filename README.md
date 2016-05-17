@@ -70,7 +70,7 @@ echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 
 This will create a `.bash_profile` config file which is read and executed each time a new terminal is opened. To apply changes made to this file, you can either restart terminal (ghetto mode), or run `source ~/.bash_profile`.
 
-If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings you can contact an instructor for help.  You can also post a question in the #askusanything channel on Slack.
+If you see other issues, try reading the instructions carefully and doing what they suggest. If `brew doctor` continues to issue warnings you can contact an instructor for help. You can also post a question in the #askusanything channel on Slack.
 
 ### Try out Homebrew
 
@@ -160,10 +160,10 @@ Reloading your config has inserted `/Users/username/.rbenv/shims` to the beginni
 
 ## Ruby
 
-To install ruby 2.3.0 (substitute this for the latest stable version of Ruby indicated on the [Ruby website](https://www.ruby-lang.org/en/downloads)):
+To install ruby 2.3.1 (substitute this for the latest stable version of Ruby indicated on the [Ruby website](https://www.ruby-lang.org/en/downloads)):
 
 ```bash
-rbenv install 2.3.0
+rbenv install 2.3.1
 ```
 
 This may take a while. Feel free to get a coffee while you wait.
@@ -171,7 +171,7 @@ This may take a while. Feel free to get a coffee while you wait.
 After this finishes, you can setup your global (default) Ruby:
 
 ```bash
-rbenv global 2.3.0
+rbenv global 2.3.1
 ```
 
 Make sure the right version is running:
@@ -180,7 +180,7 @@ Make sure the right version is running:
 ruby --version
 ```
 
-It should say `ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]` or something similar.
+It should say `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]` or something similar.
 
 Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
 
@@ -378,7 +378,7 @@ Then run:
 git --version
 ```
 
-It should say something like `git version 2.7.4`. The version number should be >= 2.7.
+It should say something like `git version 2.8.2`. The version number should be >= 2.8.
 
 Next, tell Git your name so that your commits will be properly labelled. Substitute your actual name for `YOUR NAME`, of course.
 
@@ -521,11 +521,11 @@ Verify that it installed ok:
 gitx --version
 ```
 
-and it should say something like 
+and it should say something like
 
 ```
 GitX version 0.15.1964 ((null))
-Using git found at /usr/local/bin/git, version 2.6.4
+Using git found at /usr/local/bin/git, version 2.8.2
 ```
 
 To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll explan how Git repositories work in class very, very soon.
