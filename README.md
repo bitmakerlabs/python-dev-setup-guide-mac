@@ -378,7 +378,7 @@ Then run:
 git --version
 ```
 
-It should say something like `git version 2.8.2`. The version number should be >= 2.8.
+It should say something like `git version 2.9.2`. The version number should be >= 2.9.
 
 Next, tell Git your name so that your commits will be properly labelled. Substitute your actual name for `YOUR NAME`, of course.
 
@@ -525,7 +525,7 @@ and it should say something like
 
 ```
 GitX version 0.15.1964 ((null))
-Using git found at /usr/local/bin/git, version 2.8.2
+Using git found at /usr/local/bin/git, version 2.9.2
 ```
 
 To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll explan how Git repositories work in class very, very soon.
