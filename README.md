@@ -213,7 +213,7 @@ The easiest way to install this is via [Postgres.app](http://postgresapp.com/). 
 Install the Postgres command-line tools as follows:
 
 ```bash
-echo 'export PATH=/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH' >> ~/.bash_profile
+echo 'export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH' >> ~/.bash_profile
 ```
 
 Close and reopen Terminal, and then run:
@@ -225,7 +225,7 @@ psql --version
 It should say something like:
 
 ```
-psql (PostgreSQL) 9.5.3
+psql (PostgreSQL) 9.5.4
 ```
 
 For more information: [Postgres Documentation](http://postgresapp.com/documentation/)
