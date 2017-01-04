@@ -34,6 +34,17 @@ It will pop up a dialog box like the following.
 
 Click **Install** to proceed. It is going to take a few minutes to complete.
 
+## Alias ls
+
+By default, when you view a listing of your files with the `ls` command, hidden files won't show up (i.e. files beginning with a '.'), nor will the details about each file appear. More often than not, we want to see those details, so let's `alias ls` to show these details everytime we use `ls`.
+
+Enter the following from within your terminal:
+
+```bash
+echo "alias ls='ls -al'" >> ~/.bash_profile
+source ~/.bash_profile
+```
+
 ## Homebrew
 
 Next we'll install [Homebrew](http://brew.sh/), a package manager which we'll use to install most of our other required command-line tools. It's a much more convenient alternative to compiling the code ourselves from source.
