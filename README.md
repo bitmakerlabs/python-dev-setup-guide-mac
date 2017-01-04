@@ -245,10 +245,8 @@ For more information: [Postgres Documentation](http://postgresapp.com/documentat
 
 You need to have Rails installed in order to create new Rails projects. After the project is created (or if you're working with an existing Rails project), you'll be using the bundled versions of Rails specific to your project.
 
-For this course, we'll be using Rails 4.2.7.
-
 ```bash
-gem install rails -v 4.2.7
+gem install rails
 ```
 
 **Never run sudo in front of these gem commands**, or it may install to the wrong folder.
