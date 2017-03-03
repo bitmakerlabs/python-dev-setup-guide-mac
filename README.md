@@ -507,37 +507,6 @@ provide shell access.
 
 If you receive a message about "access denied," please see an instructor for help.
 
-### GitX
-
-[GitX](http://rowanj.github.io/gitx/) is a great GUI for Git that'll come in very useful later on. Go ahead and install it with brew:
-
-```bash
-brew install Caskroom/cask/rowanj-gitx
-```
-
-Enter your OS X password if asked:
-
-```
-==> brew cask install Caskroom/cask/rowanj-gitx
-==> We need to make Caskroom for the first time at /opt/homebrew-cask/Caskroom
-==> We'll set permissions properly so we won't need sudo in the future
-Password:
-```
-
-Verify that it installed ok:
-
-```bash
-gitx --version
-```
-
-and it should say something like
-
-```
-GitX version 0.15.1964 ((null))
-Using git found at /usr/local/bin/git, version 2.9.2
-```
-
-To run gitx, just run `gitx` in any Git repository. You won't be able to use it for now because you don't have any Git repositories yet, but we'll explan how Git repositories work in class very, very soon.
 
 ## Congratulations
 
