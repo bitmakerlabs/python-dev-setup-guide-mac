@@ -171,18 +171,19 @@ Reloading your config has inserted `/Users/username/.rbenv/shims` to the beginni
 
 ## Ruby
 
-To install ruby 2.3.1 (substitute this for the latest stable version of Ruby indicated on the [Ruby website](https://www.ruby-lang.org/en/downloads)):
+To install ruby, first visit the [Ruby website](https://www.ruby-lang.org/en/downloads) and check to see what the latest version number is.  The version number should follow the format `2.X.X`, such as `2.5.1`.
 
 ```bash
-rbenv install 2.3.1
+rbenv install version_number_goes_here
 ```
+
 
 This may take a while. Feel free to get a coffee while you wait.
 
 After this finishes, you can setup your global (default) Ruby:
 
 ```bash
-rbenv global 2.3.1
+rbenv global version_number_goes_here
 ```
 
 Make sure the right version is running:
@@ -190,8 +191,6 @@ Make sure the right version is running:
 ```bash
 ruby --version
 ```
-
-It should say `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]` or something similar.
 
 Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
 
