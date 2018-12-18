@@ -2,7 +2,7 @@
 
 This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.  If you are using Linux (or need to install Linux in place of Windows), please refer to [this guide](https://github.com/bitmakerlabs/dev_environment_setup) instead.
 
-If you have the choice, always choose a Mac for your development environment. It's just much easier, especially when starting out as a new developer. Linux works too, but the [instructions](https://github.com/bitmakerlabs/dev_environment_setup) will be quite different from what's described here. Using Windows for the course is not recommended at all.
+Linux and Mac are required for this course. Using Windows for the course is not recommended at all. Note that the [instructions for Linux](https://github.com/bitmakerlabs/dev_environment_setup) will be different from what's described here.
 
 This process should take about 1 hour to 1.5 hours to complete, depending on the speed of your machine and your internet connection.
 
@@ -12,7 +12,7 @@ This guide is written assuming you are running OS X El Capitan 10.11 or later. T
 
 If you're a new developer and you haven't installed any development tools before, you can skip the next two paragraphs and go straight to the next step: [XCode and Command Line Tools](#xcode-and-command-line-tools).
 
-If you already have some development tools installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and Homebrew, which are our preferred tools.
+<!-- If you already have some development tools installed, you'll have to adjust accordingly. If you use RVM or MacPorts, you'll need to fully uninstall those before continuing as they're incompatible with rbenv and Homebrew, which are our preferred tools. -->
 
 This guide assumes that you're using bash shell, which is the default shell for the OS X Terminal. We also assume that you use `.bash_profile` to setup `$PATH` and other environment variables. If you use a different bash config file, be sure to substitute it where appropriate below.
 
@@ -30,9 +30,11 @@ xcode-select --install
 
 It will pop up a dialog box like the following.
 
-![XCode](assets/xcode.png)
+![Xcode](assets/xcode.png)
 
 Click **Install** to proceed. It is going to take a few minutes to complete.
+
+To prove that it successfully installed, run `xcode-select -p`. It should show the directory where Xcode is installed.
 
 ## Alias ls
 
