@@ -143,36 +143,36 @@ echo 'export EDITOR="atom -w"' >> ~/.bash_profile
 
 We may need to manage multiple versions of Python during the course. Run the following in your terminal:
 
-```
-$ brew update
-$ brew install pyenv
+```bash
+brew update
+brew install pyenv
 ```
 
 Additionally, run the following to ensure your command line works nicely with pyenv:
-```
-$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
-$ source ~/.bash_profile
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
 ```
 
 ## Install Python
 
 List the possible Python installations:
-```
-$ pyenv install --list
+```bash
+pyenv install --list
 ```
 
 Choose the latest version. Scroll up - it should just be a version number without any prefix or suffix. Eg. `3.7.1`, not `3.7.1-dev` or `pypy3.5-6.0.0`.
-```
-$ pyenv install 3.7.1
-$ python --version   # <-- should output 3.7.1, or whatever version you installed.
+```bash
+pyenv install 3.7.1
+python --version   # <-- should output 3.7.1, or whatever version you installed.
 ```
 
 To check that you'll be able to install new Python packages using pip, run:
 
-```
-$ pip -V
+```bash
+pip -V
 ```
 
 If you see a version number, you're good to go!
@@ -181,34 +181,34 @@ If you see a version number, you're good to go!
 
 `Virtualenv` is a tool that allows each project you create to separately manage its Python dependencies. We'll be using it throughout the course. `virtualenvwrapper` is simply a tool that makes it a bit easier to work with `virtualenv`. We'll install them both at once.
 
-```
-$ pip install virtualenv virtualenvwrapper
-$ printf '\n%s\n%s\n%s' '# virtualenv' 'export WORKON_HOME=~/virtualenvs' \
+```bash
+pip install virtualenv virtualenvwrapper
+printf '\n%s\n%s\n%s' '# virtualenv' 'export WORKON_HOME=~/virtualenvs' \
 'source /usr/local/bin/virtualenvwrapper.sh' '' >> ~/.bash_profile
 ```
 
 Then we'll create the directory that will store our virtual environments.
 
-```
-$ source ~/.bash_profile
-$ mkdir -p $WORKON_HOME
+```bash
+source ~/.bash_profile
+mkdir -p $WORKON_HOME
 ```
 
 Lastly, o get `pyenv`, which manages our Python versions, working nicely with `virtualenv`:
 
-```
-$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
-$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
-$ source ~/.bash_profile
+```bash
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
+source ~/.bash_profile
 ```
 
 Let's test that everything works together!
 
-```
-$ pyenv virtualenv my_first_env # create an environment
-$ pyenv activate my_first_env # activate the environment
-$ pyenv deactivate # deactivate the environment
-$ pyenv uninstall my_first_env # type 'y' or 'yes' and press enter when prompted
+```bash
+pyenv virtualenv my_first_env # create an environment
+pyenv activate my_first_env # activate the environment
+pyenv deactivate # deactivate the environment
+pyenv uninstall my_first_env # type 'y' or 'yes' and press enter when prompted
 ```
 
 ------------
@@ -297,7 +297,7 @@ This step will probably take a few minutes the first time you create a new Djang
 <!--
 TODO: Change this section to "Running a Django project".
 -->
-### Running a Rails project
+### Running a Django project
 
 Next, go into your new project directory
 
@@ -308,10 +308,10 @@ cd my_awesome_app
 then run:
 
 ```bash
-bin/rails server
+python manage.py runserver
 ```
 
-Visit `http://localhost:3000` in your browser. If you see the **Welcome aboard** page, congrats – Rails works!
+Visit `http://localhost:8000` in your browser. If you see the **The install worked successfully! Congratulations!** page, congrats – Django works!
 
 You can type `ctrl + c` into your terminal to stop the Rails application.
 
