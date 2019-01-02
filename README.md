@@ -294,9 +294,6 @@ django-admin startproject my_awesome_app
 This step will probably take a few minutes the first time you create a new Django project. The next time, it'll run much faster.
 
 
-<!--
-TODO: Change this section to "Running a Django project".
--->
 ### Running a Django project
 
 Next, go into your new project directory
@@ -313,11 +310,11 @@ python manage.py runserver
 
 Visit `http://localhost:8000` in your browser. If you see the **The install worked successfully! Congratulations!** page, congrats – Django works!
 
-You can type `ctrl + c` into your terminal to stop the Rails application.
+You can type `ctrl + c` into your terminal to stop the Django application.
 
-In this course, you're going to be running the `bin/rails server` and `ctrl + c` commands very, very often, so go ahead and memorize them now!
+In this course, you're going to be running the `python manage.py runserver` and `ctrl + c` commands very, very often, so go ahead and memorize them now!
 
-### Editing a Rails project
+### Editing a Django project
 
 Finally, you can open up the project files in Atom with the following command:
 
@@ -327,11 +324,11 @@ atom .
 
 The `.` symbol means 'this directory', so the command means 'Open Atom in this directory'.
 
-Poke around the project files as much as you like. Soon we'll be learning all about what makes a Rails app tick. Isn't it exciting?
+Poke around the project files as much as you like. Soon we'll be learning all about what makes a Django app tick. Isn't it exciting?
 
 Now, close the editor and continue to the next step.
 
-### Delete the new Rails project
+### Delete the new Django project
 
 To keep your work directory clean, let's delete the new project you just created.
 
@@ -370,6 +367,11 @@ rm -r my_awesome_app
 ```
 
 Be careful running this `rm -r` command! It's a command you need to learn, but always double and triple check what you're deleting. [More information on the rm -r command](http://stackoverflow.com/questions/29363445/what-is-exactly-doing-rm-r)
+
+> #### Fun fact
+People can (and have) deleted their entire computers by misusing `rm -r`. Be extra careful! It's one of the most dangerous commands you can run.
+>
+> https://superuser.com/questions/487234/can-files-deleted-with-rm-rf-be-recovered
 
 ## Git
 
@@ -516,4 +518,4 @@ If you receive a message about "access denied," please see an instructor for hel
 
 ## Congratulations
 
-Whew, you're done installing a working Rails development environment! Now take a break, you deserve it!
+Whew, you're done installing a working Django development environment! Now take a break, you deserve it!
