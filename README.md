@@ -267,10 +267,7 @@ django-admin --version
 It should say (at least) `2.1.4`.
 
 
-<!--
-TODO: Change this section to "Making a new Django Project".
--->
-### Making a New Rails Project
+### Making a New Django Project
 
 You should create a directory where you can put all of your work. Run:
 
@@ -282,19 +279,19 @@ This will create a `work` directory inside the OS X `Documents` folder. The word
 
 The `~` symbol refers to your [Home Directory](http://superuser.com/questions/158721/what-does-mean-in-terms-of-os-x-folders-directories). You should put all of your work for this course inside the work directory, or some other directory of your choosing if you have another preference.
 
-Go inside the work directory:
+Go inside your work directory:
 
 ```bash
 cd ~/Documents/work
 ```
 
-and then make a new Rails project:
+and then make a new Django project:
 
 ```bash
-rails new my_awesome_app
+django-admin startproject my_awesome_app
 ```
 
-This step will probably take a few minutes the first time you create a new Rails project. The next time, it'll run much faster.
+This step will probably take a few minutes the first time you create a new Django project. The next time, it'll run much faster.
 
 
 <!--
