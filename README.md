@@ -241,33 +241,30 @@ psql (PostgreSQL) 9.5.4
 
 For more information: [Postgres Documentation](http://postgresapp.com/documentation/)
 
-<!--
-TODO: Change this section to "Django".
--->
 
-## Rails
+## Django
 
-You need to have Rails installed in order to create new Rails projects. After the project is created (or if you're working with an existing Rails project), you'll be using the bundled versions of Rails specific to your project.
+You need to have Django installed in order to create new Django projects. After the project is created (or if you're working with an existing Django project), you'll be using the bundled versions of Django specific to your project.
 
 ```bash
-gem install rails
+pip install Django
 ```
 
-**Never run sudo in front of these gem commands**, or it may install to the wrong folder.
+**Never run sudo in front of these pip commands**, or it may install to the wrong folder.
 
-Rails might take a while to install. When the installation is done, you can look at your installed gems by running
+Django might take a while to install. When the installation is done, you can look at your installed Python modules by running
 
 ```bash
-gem list
+pip list
 ```
 
-Verify that Rails is there and that the version is 4.2.7. Now run:
+Verify that Django is there and that the version is at least `2.1.4`. Run:
 
 ```bash
-rails --version
+django-admin --version
 ```
 
-It should say `Rails 4.2.7`.
+It should say (at least) `2.1.4`.
 
 
 <!--
