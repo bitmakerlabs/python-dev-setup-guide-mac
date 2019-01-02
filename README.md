@@ -139,80 +139,79 @@ Now that you've installed Atom, you might also want to set it as your default sy
 echo 'export EDITOR="atom -w"' >> ~/.bash_profile
 ```
 
-## rbenv
+## Install Pyenv
 
-```bash
-brew install rbenv
-```
-
-This installs [rbenv](https://github.com/sstephenson/rbenv), a lightweight tool to manage different versions of Ruby. OS X comes with an old version of Ruby, but we'll generally want to have our own, newer versions of it.
-
-Installing rbenv will automatically install [ruby-build](https://github.com/sstephenson/ruby-build), a plugin for rbenv to conveniently install different versions of Ruby.
-
-Now we need to modify our bash config. Copy and paste the following in your terminal.
-
-```bash
-echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-```
-
-Then close terminal and re-open it (restart Terminal) to apply the changes.
-
-If you look at your path:
-
-```bash
-echo $PATH
-```
-
-It should look something like:
+We may need to manage multiple versions of Python during the course. Run the following in your terminal:
 
 ```
-/Users/username/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+$ brew update
+$ brew install pyenv
 ```
 
-Reloading your config has inserted `/Users/username/.rbenv/shims` to the beginning of your `$PATH` variable. This is necessary for rbenv to work its magic.
-
-## Ruby
-
-To install ruby, first visit the [Ruby website](https://www.ruby-lang.org/en/downloads) and check to see what the latest version number is.  The version number should follow the format `2.X.X`, such as `2.5.1`.
-
-```bash
-rbenv install version_number_goes_here
+Additionally, run the following to ensure your command line works nicely with pyenv:
+```
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+$ source ~/.bash_profile
 ```
 
+## Install Python
 
-This may take a while. Feel free to get a coffee while you wait.
-
-After this finishes, you can setup your global (default) Ruby:
-
-```bash
-rbenv global version_number_goes_here
+List the possible Python installations:
+```
+$ pyenv install --list
 ```
 
-Make sure the right version is running:
-
-```bash
-ruby --version
+Choose the latest version. Scroll up - it should just be a version number without any prefix or suffix. Eg. `3.7.1`, not `3.7.1-dev` or `pypy3.5-6.0.0`.
+```
+$ pyenv install 3.7.1
+$ python --version   # <-- should output 3.7.1, or whatever version you installed.
 ```
 
-Note that you can override this global setting per project. See [Choosing the Ruby Version](https://github.com/sstephenson/rbenv#choosing-the-ruby-version) for more information.
+To check that you'll be able to install new Python packages using pip, run:
 
-You can install older versions of Ruby this way as well if you ever find yourself working on a project that relies on an older version.
-
-## RubyGems
-
-RubyGems is a package management framework for Ruby. We use it to install Ruby apps such as Rails.
-
-Run the following to update to the latest version:
-
-```bash
-gem update --system
+```
+$ pip -V
 ```
 
-Next run the following to install [Bundler](http://bundler.io/), which is required by Rails for managing your app's gems:
+If you see a version number, you're good to go!
 
-```bash
-gem install bundler
+### Install Virtualenv
+
+`Virtualenv` is a tool that allows each project you create to separately manage its Python dependencies. We'll be using it throughout the course. `virtualenvwrapper` is simply a tool that makes it a bit easier to work with `virtualenv`. We'll install them both at once.
+
 ```
+$ pip install virtualenv virtualenvwrapper
+$ printf '\n%s\n%s\n%s' '# virtualenv' 'export WORKON_HOME=~/virtualenvs' \
+'source /usr/local/bin/virtualenvwrapper.sh' '' >> ~/.bash_profile
+```
+
+Then we'll create the directory that will store our virtual environments.
+
+```
+$ source ~/.bash_profile
+$ mkdir -p $WORKON_HOME
+```
+
+Lastly, o get `pyenv`, which manages our Python versions, working nicely with `virtualenv`:
+
+```
+$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
+$ source ~/.bash_profile
+```
+
+Let's test that everything works together!
+
+```
+$ pyenv virtualenv my_first_env # create an environment
+$ pyenv activate my_first_env # activate the environment
+$ pyenv deactivate # deactivate the environment
+$ pyenv uninstall my_first_env # type 'y' or 'yes' and press enter when prompted
+```
+
+------------
 
 ## Postgres
 
@@ -242,6 +241,10 @@ psql (PostgreSQL) 9.5.4
 
 For more information: [Postgres Documentation](http://postgresapp.com/documentation/)
 
+<!--
+TODO: Change this section to "Django".
+-->
+
 ## Rails
 
 You need to have Rails installed in order to create new Rails projects. After the project is created (or if you're working with an existing Rails project), you'll be using the bundled versions of Rails specific to your project.
@@ -266,6 +269,10 @@ rails --version
 
 It should say `Rails 4.2.7`.
 
+
+<!--
+TODO: Change this section to "Making a new Django Project".
+-->
 ### Making a New Rails Project
 
 You should create a directory where you can put all of your work. Run:
@@ -292,6 +299,10 @@ rails new my_awesome_app
 
 This step will probably take a few minutes the first time you create a new Rails project. The next time, it'll run much faster.
 
+
+<!--
+TODO: Change this section to "Running a Django project".
+-->
 ### Running a Rails project
 
 Next, go into your new project directory
