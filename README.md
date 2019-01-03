@@ -1,6 +1,6 @@
 # Mac Setup for Web Development Intensive
 
-This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.  If you are using Linux (or need to install Linux in place of Windows), please refer to [this guide](https://github.com/bitmakerlabs/dev_environment_setup) instead.
+This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.  If you are using Linux (or need to install Linux in place of Windows), please refer to [this guide](https://github.com/bitmakerlabs/python-dev-setup-guide-linux) instead.
 
 Linux and Mac are required for this course. Using Windows for the course is not recommended at all. Note that the [instructions for Linux](https://github.com/bitmakerlabs/dev_environment_setup) will be different from what's described here.
 
