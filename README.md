@@ -166,6 +166,7 @@ pyenv install --list
 Choose the latest version. Scroll up - it should just be a version number without any prefix or suffix. Eg. `3.7.1`, not `3.7.1-dev` or `pypy3.5-6.0.0`.
 ```bash
 pyenv install 3.7.1
+pyenv global 3.7.1
 python --version   # <-- should output 3.7.1, or whatever version you installed.
 ```
 
