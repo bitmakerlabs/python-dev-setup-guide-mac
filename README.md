@@ -180,19 +180,10 @@ If you see a version number, you're good to go!
 
 ### Install Virtualenv
 
-`Virtualenv` is a tool that allows each project you create to separately manage its Python dependencies. We'll be using it throughout the course. `virtualenvwrapper` is simply a tool that makes it a bit easier to work with `virtualenv`. We'll install them both at once.
+`Virtualenv` is a tool that allows each project you create to separately manage its Python dependencies. We'll be using it throughout the course.
 
 ```bash
-pip install virtualenv virtualenvwrapper
-printf '\n%s\n%s\n%s' '# virtualenv' 'export WORKON_HOME=~/virtualenvs' \
-'source /usr/local/bin/virtualenvwrapper.sh' '' >> ~/.bash_profile
-```
-
-Then we'll create the directory that will store our virtual environments.
-
-```bash
-source ~/.bash_profile
-mkdir -p $WORKON_HOME
+pip install virtualenv
 ```
 
 Lastly, to get `pyenv`, which manages our Python versions, working nicely with `virtualenv`:
