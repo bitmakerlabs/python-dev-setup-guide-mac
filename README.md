@@ -1,6 +1,6 @@
 # Mac Setup for Web Development Intensive
 
-This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course.  If you are using Linux (or need to install Linux in place of Windows), please refer to [this guide](https://github.com/bitmakerlabs/python-dev-setup-guide-linux) instead.
+This is Bitmaker's guide to setting up a development environment on a Mac for the Web Development Intensive course. If you are using Linux (or need to install Linux in place of Windows), please refer to [this guide](https://github.com/bitmakerlabs/python-dev-setup-guide-linux) instead.
 
 Linux and Mac are required for this course. Using Windows for the course is not recommended at all. Note that the [instructions for Linux](https://github.com/bitmakerlabs/dev_environment_setup) will be different from what's described here.
 
@@ -20,7 +20,7 @@ This guide assumes that you're using bash shell, which is the default shell for 
 
 We need to install the tools that allow us to compile programs specifically for your machine. These are provided by Apple and are pretty easy to install.
 
-Open the **Terminal** program. You can find it in the *Other* folder in Launchpad.
+Open the **Terminal** program. You can find it in the _Other_ folder in Launchpad.
 
 Enter the following command on the terminal command line.
 
@@ -67,7 +67,7 @@ brew doctor
 
 to make sure Homebrew installed correctly.
 
-If brew doctor says `Your system is ready to brew`, then everything worked properly and you can skip the following step *"Your system is not ready to brew"* and proceed straight to [Try out Homebrew](#try-out-homebrew). Lucky you.
+If brew doctor says `Your system is ready to brew`, then everything worked properly and you can skip the following step _"Your system is not ready to brew"_ and proceed straight to [Try out Homebrew](#try-out-homebrew). Lucky you.
 
 ### Your system is not ready to brew
 
@@ -111,9 +111,9 @@ If you're a new developer and this section didn't make much sense to you, don't 
 
 ### Food for Thought
 
-* How do I get a list of Homebrew packages that are installable?
-* How do I get a list of currently installed Homebrew packages?
-* How do I update an existing package?
+- How do I get a list of Homebrew packages that are installable?
+- How do I get a list of currently installed Homebrew packages?
+- How do I update an existing package?
 
 (You'll probably have to read the [Homebrew documentation](https://github.com/Homebrew/homebrew) to answer these questions.)
 
@@ -149,6 +149,7 @@ brew install pyenv
 ```
 
 Additionally, run the following to ensure your command line works nicely with pyenv:
+
 ```bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
@@ -159,11 +160,13 @@ source ~/.bash_profile
 ## Install Python
 
 List the possible Python installations:
+
 ```bash
 pyenv install --list
 ```
 
 Choose the latest version. Scroll up - it should just be a version number without any prefix or suffix. Eg. `3.7.1`, not `3.7.1-dev` or `pypy3.5-6.0.0`.
+
 ```bash
 pyenv install 3.7.1
 pyenv global 3.7.1
@@ -183,7 +186,7 @@ If you see a version number, you're good to go!
 `Virtualenv` is a tool that allows each project you create to separately manage its Python dependencies. We'll be using it throughout the course.
 
 ```bash
-pip install virtualenv
+brew install pyenv-virtualenv
 ```
 
 Lastly, to get `pyenv`, which manages our Python versions, working nicely with `virtualenv`:
@@ -203,7 +206,7 @@ pyenv deactivate # deactivate the environment
 pyenv uninstall my_first_env # type 'y' or 'yes' and press enter when prompted
 ```
 
-------------
+---
 
 ## Postgres
 
@@ -233,7 +236,6 @@ psql (PostgreSQL) 9.5.4
 
 For more information: [Postgres Documentation](http://postgresapp.com/documentation/)
 
-
 ## Django
 
 You need to have Django installed in order to create new Django projects. After the project is created (or if you're working with an existing Django project), you'll be using the bundled versions of Django specific to your project.
@@ -257,7 +259,6 @@ django-admin --version
 ```
 
 It should say (at least) `2.1.4`.
-
 
 ### Making a New Django Project
 
@@ -284,7 +285,6 @@ django-admin startproject my_awesome_app
 ```
 
 This step will probably take a few minutes the first time you create a new Django project. The next time, it'll run much faster.
-
 
 ### Running a Django project
 
@@ -361,7 +361,8 @@ rm -r my_awesome_app
 Be careful running this `rm -r` command! It's a command you need to learn, but always double and triple check what you're deleting. [More information on the rm -r command](http://stackoverflow.com/questions/29363445/what-is-exactly-doing-rm-r)
 
 > #### Fun fact
-People can (and have) deleted their entire computers by misusing `rm -r`. Be extra careful! It's one of the most dangerous commands you can run.
+>
+> People can (and have) deleted their entire computers by misusing `rm -r`. Be extra careful! It's one of the most dangerous commands you can run.
 >
 > https://superuser.com/questions/487234/can-files-deleted-with-rm-rf-be-recovered
 
@@ -425,7 +426,7 @@ When you are prompted to `Enter file in which to save the key`, just press **Ent
 
 You'll then be asked to `Enter passphrase (empty for no passphrase)`. Enter a very good, secure passphrase (be sure that it's something you can remember).
 
-Go ahead and memorize that passphrase now because it'll be needed again soon, in the *Test the Connection* step.
+Go ahead and memorize that passphrase now because it'll be needed again soon, in the _Test the Connection_ step.
 
 Next you'll be asked to `Enter same passphrase again`. Do so. You sould then see something like:
 
@@ -462,12 +463,12 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 Follow these steps to add the copied key to your Github account.
 
-* In the top right corner of Github, click your profile photo, then click Settings.
-* In the user settings sidebar, click **SSH keys**.
-* Click **Add SSH key**.
-* In the **Title** field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
-* Paste your key into the **Key** field. (`ctrl-v`)
-* Click **Add key**.
+- In the top right corner of Github, click your profile photo, then click Settings.
+- In the user settings sidebar, click **SSH keys**.
+- Click **Add SSH key**.
+- In the **Title** field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+- Paste your key into the **Key** field. (`ctrl-v`)
+- Click **Add key**.
 
 For more information: [Github documentation on adding your SSH Key to your account](https://help.github.com/articles/generating-ssh-keys/#step-4-add-your-ssh-key-to-your-account)
 
@@ -497,7 +498,6 @@ Make sure the **Remember password in my keychain** box is checked.
 
 Then type in the passphrase that you used to generate the SSH Key, and press **OK**.
 
-
 If you see the following, then your Github account has been set up properly!
 
 ```
@@ -506,7 +506,6 @@ provide shell access.
 ```
 
 If you receive a message about "access denied," please see an instructor for help.
-
 
 ## Congratulations
 
