@@ -117,26 +117,18 @@ If you're a new developer and this section didn't make much sense to you, don't 
 
 (You'll probably have to read the [Homebrew documentation](https://github.com/Homebrew/homebrew) to answer these questions.)
 
-## Atom Editor
+## VS Code Text Editor
 
-### Install Atom
+### Install VS Code
 
-Download [Atom](https://atom.io). Remember to drag the app from your `Downloads` folder into your `Applications` folder to install it into your system. Double click to launch it and take a look around.
+Download [VS Code](https://code.visualstudio.com/). Remember to drag the app from your `Downloads` folder into your `Applications` folder to install it into your system. Double click to launch it and take a look around.
 
-Atom is the text editor we recommend for the course. Other alternatives are [Sublime Text 3](http://www.sublimetext.com/3) and [Textmate 2](https://macromates.com/download) if you ever feel like a change of pace.
+VS Code is the text editor we recommend for the course. Other alternatives are [Atom](https://atom.io), [Sublime Text 3](http://www.sublimetext.com/3) and [Textmate 2](https://macromates.com/download).
 
-### Atom Command-Line Tool
-
-Atom comes with a command-line app called `atom`. We can open up files and folders from the command line using:
+Now that you've installed VS Code, you might also want to set it as your default system editor by running the following command from any directory in your terminal:
 
 ```bash
-atom name_of_file_or_folder
-```
-
-Now that you've installed Atom, you might also want to set it as your default system editor. Much easier to use than `vim`!
-
-```bash
-echo 'export EDITOR="atom -w"' >> ~/.bash_profile
+echo 'export EDITOR="code -w"' >> ~/.bash_profile
 ```
 
 ## Install Pyenv
@@ -308,13 +300,13 @@ In this course, you're going to be running the `python manage.py runserver` and 
 
 ### Editing a Django project
 
-Finally, you can open up the project files in Atom with the following command:
+Finally, you can open up the project files in VS Code with the following command:
 
 ```bash
-atom .
+code .
 ```
 
-The `.` symbol means 'this directory', so the command means 'Open Atom in this directory'.
+The `.` symbol means 'this directory', so the command means 'open VS Code in this directory'.
 
 Poke around the project files as much as you like. Soon we'll be learning all about what makes a Django app tick. Isn't it exciting?
 
